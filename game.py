@@ -11,7 +11,6 @@ class Player:
     def __init__(self, name):
         self.name = name
         self.inventory = []
-        # TODO: Add a health attribute to the Player class (start at 100)
         self.health = 100
         self.has_map = False
         self.has_lantern = False
@@ -49,8 +48,6 @@ def explore_mountain_pass(player):
         add_to_inventory(player, "map")
         player.has_map = True
 
-# TODO: Modify explore_cave(player)
-#       - If player does not have lantern, subtract 10 health
 def explore_cave(player):
     if player.has_lantern:
         print(f"{player.name}, you enter the cave, your lantern lighting the way.")
@@ -59,8 +56,6 @@ def explore_cave(player):
         player.health -= 10
         print("It's too dark to continue without a lantern. You take damage trying to navigate.")
 
-# TODO: Modify explore_hidden_valley(player)
-#       - If player does not have map, subtract 10 health
 def explore_hidden_valley(player):
     if player.has_map:
         print(f"{player.name}, you use your map to find a hidden valley.")
@@ -69,21 +64,17 @@ def explore_hidden_valley(player):
         player.health -= 10
         print("You can't find the hidden valley without a map. You get lost and take damage.")
 
-# TODO: Create a function stay_still(player)
-#       - Subtract 10 health when the player stays still
+
 def stay_still(player):
     player.health -= 10
     print("You stay still, but the forest's stillness drains your energy.")
 
-# TODO: Create a function check_win(player)
-#       - If "treasure" and "rare herbs" are both in inventory, print win message and exit
+
 def check_win(player):
     if "treasure" in player.inventory and "rare herbs" in player.inventory:
         print(f"Congratulations, {player.name}! You've found the treasure and rare herbs! You win!")
         exit()
 
-# TODO: Create a function check_lose(player)
-#       - If health is 0 or lower, print lose message and exit
 def check_lose(player):
     if player.health <= 0:
         print(f"Game over, {player.name}. You have died.")
@@ -122,7 +113,7 @@ while True:
     else:
         print("Invalid choice. Please choose 1, 2, 3, 4, 5, or I.")
 
-    # TODO: Show the player's current health after every action
+
     print(f"{player.name}'s current health: {player.health}")
 
     check_win(player)
